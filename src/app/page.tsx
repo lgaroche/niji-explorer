@@ -41,7 +41,7 @@ export default async function Home({ searchParams, }: {
             <div
               key={card.id}
               className="flex flex-col items-center">
-              <Link href={`/details/${card.id}`}>
+              <Link href={`/details/hash/${card.id}`}>
                 <NijiImage
                   src={card.image}
                   alt={card.name}
