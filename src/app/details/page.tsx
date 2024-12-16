@@ -43,7 +43,7 @@ export default async function Token({ searchParams }: { searchParams: SearchPara
     })
     console.log(postResponse)
     if (postResponse.posts.length === 0) {
-        return <NotFound message="ID Card not revealed yet" />
+        return <NotFound message={`ID Card ${tokenId} not revealed yet`} />
     }
     console.log(postResponse.posts[0].content)
     const idCard = postResponse.posts[0].content as IDCardContent
