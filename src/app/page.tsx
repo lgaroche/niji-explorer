@@ -3,9 +3,9 @@ import { DateTime } from 'luxon';
 import Link from "next/link";
 import NijiImage from "./nijiImage";
 
-export default async function Home({ searchParams, }: {
+export default async function Home({ searchParams, }: Readonly<{
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}) {
+}>) {
   const { page } = await searchParams
   const currentPage = parseInt(page as string) || 1
   const client = new AlephHttpClient()

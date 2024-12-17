@@ -2,17 +2,7 @@ import { AlephHttpClient } from "@aleph-sdk/client";
 import Image from "next/image";
 import Link from "next/link";
 import NijiImage from "@/app/nijiImage";
-
-interface Attributes {
-    trait_type: string
-    value: string
-}
-
-interface IDCardContent {
-    name: string
-    image: string
-    attributes: Attributes[]
-}
+import { IDCardContent } from "@/model";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
@@ -30,7 +20,7 @@ const NotFound = ({ message }: { message: string }) => (
 )
 
 
-export default async function Token({ searchParams }: { searchParams: SearchParams }) {
+export default async function Token({ searchParams }: Readonly<{ searchParams: SearchParams }>) {
     const { tokenId } = await searchParams
     if (isNaN(parseInt(tokenId as string))) {
         return <NotFound message="ID Card not found" />
